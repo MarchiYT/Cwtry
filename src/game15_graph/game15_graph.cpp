@@ -19,16 +19,16 @@ Texture shipmidlrexp;
 Texture shipmidtd;
 Texture shipmidtdexp;
 
-int drawGrid(RenderWindow& window, int Gridp[size + 2][size + 2], int Gridc[size + 2][size + 2], bool isPlayerGrid) {
+int drawGrid(RenderWindow& window, int Gridp[sizeg + 2][sizeg + 2], int Gridc[sizeg + 2][sizeg + 2], bool isPlayerGrid) {
     Sprite cell;
-    cell.setPosition(sf::Vector2f(cellsize, cellsize));
+    cell.setPosition(sf::Vector2f(cellsizeg, cellsizeg));
 
     float x_offset = 0.f;
     if (!isPlayerGrid) {
-        x_offset = (size + 2) * cellsize;
-        for (int x = 0; x < size + 2; x++) {
-            for (int y = 0; y < size + 2; y++) {
-                cell.setPosition(x * cellsize + x_offset, y * cellsize);
+        x_offset = (sizeg + 2) * cellsizeg;
+        for (int x = 0; x < sizeg + 2; x++) {
+            for (int y = 0; y < sizeg + 2; y++) {
+                cell.setPosition(x * cellsizeg + x_offset, y * cellsizeg);
                 if (Gridc[x][y] == 0 || Gridc[x][y] == 1) { // ���������� ������ ��� ������� ����������
                     cell.setTexture(sea);
                     if (Gridc[x][y] != 0 && Gridc[x][y] != 1) {
@@ -171,9 +171,9 @@ int drawGrid(RenderWindow& window, int Gridp[size + 2][size + 2], int Gridc[size
         }
     }
 
-    for (int x = 0; x < size + 2; x++) {
-        for (int y = 0; y < size + 2; y++) {
-            cell.setPosition(x * cellsize, y * cellsize);
+    for (int x = 0; x < sizeg + 2; x++) {
+        for (int y = 0; y < sizeg + 2; y++) {
+            cell.setPosition(x * cellsizeg, y * cellsizeg);
             if (Gridp[x][y] == 0) { // ���������� ������
                 cell.setTexture(sea);
                 if (Gridp[x][y] != 0) {

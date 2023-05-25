@@ -1,9 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../game15_logic/game15_logic.h"
 
 using namespace sf;
 
-int drawGrid(RenderWindow& window, int Gridp[size + 2][size + 2], int Gridc[size + 2][size + 2], bool isPlayerGrid);
+const int sizeg = 10;
+const int cellsizeg = 50;
+
+int drawGrid(RenderWindow& window, int Gridp[sizeg + 2][sizeg + 2], int Gridc[sizeg + 2][sizeg + 2], bool isPlayerGrid);
 
 int initGraphic();
