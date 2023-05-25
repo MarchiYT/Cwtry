@@ -1,15 +1,15 @@
 #include "../game15_logic/game15_logic.h"
 
-int AroundCell(int i, int j, int b[size + 2][size + 2]) {
+int AroundCell(int i, int j, int b[gridsize + 2][gridsize + 2]) {
     if (b[i - 1][j - 1] == 1 or b[i - 1][j] == 1 or b[i - 1][j + 1] == 1 or b[i][j - 1] == 1 or b[i][j] == 1 or b[i][j + 1] == 1 or b[i + 1][j - 1] == 1 or b[i + 1][j] == 1 or b[i + 1][j + 1] == 1) return 1;
     else return 0;
 }
 
-int Ship_placement(int b[size + 2][size + 2], int size)
+int Ship_placement(int b[gridsize + 2][gridsize + 2], int gridsize)
 {
     int l = 0;      //count 4 ships
     while (l < 1) {
-        int i = rand() % size + 1; int j = rand() % size + 1;
+        int i = rand() % gridsize + 1; int j = rand() % gridsize + 1;
         b[i][j] = 1;
         if (i >= 4 && i <= 7 && j >= 4 && j <= 7) {
             int v = rand() % 2; //v=0 r=0 up || v=0 r=1 left||  v=1 r=0 down || v=1 r=1 right
@@ -81,7 +81,7 @@ int Ship_placement(int b[size + 2][size + 2], int size)
     }
     l = 0;      //count 3 ships
     while (l < 2) {
-        int i = rand() % size + 1; int j = rand() % size + 1;
+        int i = rand() % gridsize + 1; int j = rand() % gridsize + 1;
         if (i >= 3 && i <= 8 && j >= 3 && j <= 8 && AroundCell(i, j, b) == 0) {
             int v = rand() % 2;    //v=0 r=0 up || v=0 r=1 left||  v=1 r=0 down || v=1 r=1 right  
             int r = rand() % 2;
@@ -197,7 +197,7 @@ int Ship_placement(int b[size + 2][size + 2], int size)
     }
     l = 0;      //count 2 ships
     while (l < 3) {
-        int i = rand() % size + 1; int j = rand() % size + 1;
+        int i = rand() % gridsize + 1; int j = rand() % gridsize + 1;
         if (i >= 2 && i <= 9 && j >= 2 && j <= 9 && AroundCell(i, j, b) == 0) {
             int v = rand() % 2;   //v=0 r=0 up || v=0 r=1 left||  v=1 r=0 down || v=1 r=1 right    
             int r = rand() % 2;
@@ -315,7 +315,7 @@ int Ship_placement(int b[size + 2][size + 2], int size)
     }
     l = 0;      //count 1 ships
     while (l < 4) {
-        int i = rand() % size + 1; int j = rand() % size + 1;
+        int i = rand() % gridsize + 1; int j = rand() % gridsize + 1;
         if (AroundCell(i, j, b) == 0) {
             b[i][j] = 1;
             l += 1;
@@ -347,102 +347,102 @@ int timer() {
     return 0;
 }
 
-int zeroGrid(int Gridp[size + 2][size + 2], int Gridc[size + 2][size + 2]) {
-    for (int x = 1; x < size + 1; x++) {
-        for (int y = 1; y < size + 1; y++) {
+int zeroGrid(int Gridp[gridsize + 2][gridsize + 2], int Gridc[gridsize + 2][gridsize + 2]) {
+    for (int x = 1; x < gridsize + 1; x++) {
+        for (int y = 1; y < gridsize + 1; y++) {
             Gridp[x][y] = 0;
             Gridc[x][y] = 0;
         }
     }
-    for (int x = 1; x < size + 1; x++) {
-        for (int y = 1; y < size + 1; y++) {
+    for (int x = 1; x < gridsize + 1; x++) {
+        for (int y = 1; y < gridsize + 1; y++) {
             if (Gridp[x][y] != 0 || Gridc[x][y] != 0) {
                 return 1;
             }
         }
     }
-    for (int x = 0; x < size + 2; x++) {
+    for (int x = 0; x < gridsize + 2; x++) {
         Gridp[x][0] = -1;
         Gridc[x][0] = -1;
-        Gridp[x][size + 1] = -1;
-        Gridc[x][size + 1] = -1;
+        Gridp[x][gridsize + 1] = -1;
+        Gridc[x][gridsize + 1] = -1;
     }
-    for (int x = 0; x < size + 2; x++) {
-        if (Gridp[x][0] != -1 || Gridc[x][0] != -1 || Gridp[x][size + 1] != -1 || Gridc[x][size + 1] != -1) {
+    for (int x = 0; x < gridsize + 2; x++) {
+        if (Gridp[x][0] != -1 || Gridc[x][0] != -1 || Gridp[x][gridsize + 1] != -1 || Gridc[x][gridsize + 1] != -1) {
             return 1;
         }
     }
-    for (int y = 0; y < size + 2; y++) {
+    for (int y = 0; y < gridsize + 2; y++) {
         Gridp[0][y] = -1;
         Gridc[0][y] = -1;
-        Gridp[size + 1][y] = -1;
-        Gridc[size + 1][y] = -1;
+        Gridp[gridsize + 1][y] = -1;
+        Gridc[gridsize + 1][y] = -1;
     }
-    for (int y = 0; y < size + 2; y++) {
-        if (Gridp[0][y] != -1 || Gridc[0][y] != -1 || Gridp[size + 1][y] != -1 || Gridc[size + 1][y] != -1) {
+    for (int y = 0; y < gridsize + 2; y++) {
+        if (Gridp[0][y] != -1 || Gridc[0][y] != -1 || Gridp[gridsize + 1][y] != -1 || Gridc[gridsize + 1][y] != -1) {
             return 1;
         }
     }
     return 0;
 }
 
-int aroundHit(int Grid[size + 2][size + 2], int x, int y) {
-    if (x > size + 1 || y > size + 1 || x < 1 || y < 1) {
+int aroundHit(int Grid[gridsize + 2][gridsize + 2], int x, int y) {
+    if (x > gridsize + 1 || y > gridsize + 1 || x < 1 || y < 1) {
         return 1;
     }
     Grid[x][y] = 4;
-    if (Grid[x + 1][y] == 0 && (x + 1) >= 1 && (x + 1) < size + 1 && y >= 1 && y < size + 1) {
+    if (Grid[x + 1][y] == 0 && (x + 1) >= 1 && (x + 1) < gridsize + 1 && y >= 1 && y < gridsize + 1) {
         Grid[x + 1][y] = 2;
-        if (x + 1 >= size + 2) {
+        if (x + 1 >= gridsize + 2) {
             return 1;
         }
     }
-    if (Grid[x - 1][y] == 0 && (x - 1) >= 1 && (x - 1) < size + 1 && y >= 1 && y < size + 1) {
+    if (Grid[x - 1][y] == 0 && (x - 1) >= 1 && (x - 1) < gridsize + 1 && y >= 1 && y < gridsize + 1) {
         Grid[x - 1][y] = 2;
         if (x - 1 <= 0) {
             return 1;
         }
     }
-    if (Grid[x][y + 1] == 0 && x >= 1 && x < size + 1 && (y + 1) >= 1 && (y + 1) < size + 1) {
+    if (Grid[x][y + 1] == 0 && x >= 1 && x < gridsize + 1 && (y + 1) >= 1 && (y + 1) < gridsize + 1) {
         Grid[x][y + 1] = 2;
-        if (y + 1 >= size + 2) {
+        if (y + 1 >= gridsize + 2) {
             return 1;
         }
     }
-    if (Grid[x][y - 1] == 0 && x >= 1 && x < size + 1 && (y - 1) >= 1 && (y - 1) < size + 1) {
+    if (Grid[x][y - 1] == 0 && x >= 1 && x < gridsize + 1 && (y - 1) >= 1 && (y - 1) < gridsize + 1) {
         Grid[x][y - 1] = 2;
         if (y - 1 <= 0) {
             return 1;
         }
     }
-    if (Grid[x + 1][y + 1] == 0 && (x + 1) >= 1 && (x + 1) < size + 1 && (y + 1) >= 1 && (y + 1) < size + 1) {
+    if (Grid[x + 1][y + 1] == 0 && (x + 1) >= 1 && (x + 1) < gridsize + 1 && (y + 1) >= 1 && (y + 1) < gridsize + 1) {
         Grid[x + 1][y + 1] = 2;
-        if (x + 1 >= size + 2 || y + 1 >= size + 2) {
+        if (x + 1 >= gridsize + 2 || y + 1 >= gridsize + 2) {
             return 1;
         }
     }
-    if (Grid[x - 1][y - 1] == 0 && (x - 1) >= 1 && (x - 1) < size + 1 && (y - 1) >= 1 && (y - 1) < size + 1) {
+    if (Grid[x - 1][y - 1] == 0 && (x - 1) >= 1 && (x - 1) < gridsize + 1 && (y - 1) >= 1 && (y - 1) < gridsize + 1) {
         Grid[x - 1][y - 1] = 2;
         if (x - 1 <= 0 || y - 1 <= 0) {
             return 1;
         }
     }
-    if (Grid[x - 1][y + 1] == 0 && (x - 1) >= 1 && (x - 1) < size + 1 && (y + 1) >= 1 && (y + 1) < size + 1) {
+    if (Grid[x - 1][y + 1] == 0 && (x - 1) >= 1 && (x - 1) < gridsize + 1 && (y + 1) >= 1 && (y + 1) < gridsize + 1) {
         Grid[x - 1][y + 1] = 2;
-        if (x - 1 <= 0 || y + 1 >= size + 2) {
+        if (x - 1 <= 0 || y + 1 >= gridsize + 2) {
             return 1;
         }
     }
-    if (Grid[x + 1][y - 1] == 0 && (x + 1) >= 1 && (x + 1) < size + 1 && (y - 1) >= 1 && (y - 1) < size + 1) {
+    if (Grid[x + 1][y - 1] == 0 && (x + 1) >= 1 && (x + 1) < gridsize + 1 && (y - 1) >= 1 && (y - 1) < gridsize + 1) {
         Grid[x + 1][y - 1] = 2;
-        if (x + 1 >= size + 2 || y - 1 <= 0) {
+        if (x + 1 >= gridsize + 2 || y - 1 <= 0) {
             return 1;
         }
     }
     return 0;
 }
 
-bool isSunk(int x, int y, int Grid[size + 2][size + 2], int size) {
+bool isSunk(int x, int y, int Grid[gridsize + 2][gridsize + 2], int gridsize) {
     if (Grid[x + 1][y] == 3 || Grid[x + 1][y] == 4) {
         if (Grid[x + 2][y] == 3 || Grid[x + 2][y] == 4) {
             if (Grid[x + 3][y] == 3 || Grid[x + 3][y] == 4) {
@@ -513,9 +513,9 @@ bool isSunk(int x, int y, int Grid[size + 2][size + 2], int size) {
     return true;
 }
 
-int checkforHit(int Grid[size + 2][size + 2]) {
-    for (int x = 1; x < size + 1; x++) {
-        for (int y = 1; y < size + 1; y++) {
+int checkforHit(int Grid[gridsize + 2][gridsize + 2]) {
+    for (int x = 1; x < gridsize + 1; x++) {
+        for (int y = 1; y < gridsize + 1; y++) {
             if (Grid[x][y] == 3) {
                 return 1;
             }
@@ -524,13 +524,13 @@ int checkforHit(int Grid[size + 2][size + 2]) {
     return 0;
 }
 
-int computerHit(int Grid[size + 2][size + 2], int hits, int& x, int& y) {
-    x = rand() % size + 1;
-    y = rand() % size + 1;
+int computerHit(int Grid[gridsize + 2][gridsize + 2], int hits, int& x, int& y) {
+    x = rand() % gridsize + 1;
+    y = rand() % gridsize + 1;
     if (hits == 1) {
         while (1) {
-            x = rand() % size + 1;
-            y = rand() % size + 1;
+            x = rand() % gridsize + 1;
+            y = rand() % gridsize + 1;
             if ((Grid[x][y] != 2 && Grid[x][y] != 3 && Grid[x][y] != 4) &&
                 (Grid[x + 1][y] == 3 || Grid[x - 1][y] == 3 || Grid[x][y + 1] == 3 || Grid[x][y - 1] == 3) &&
                 (Grid[x + 1][y + 1] != 3 && Grid[x - 1][y - 1] != 3 && Grid[x - 1][y + 1] != 3 && Grid[x + 1][y - 1] != 3)) {
@@ -543,8 +543,8 @@ int computerHit(int Grid[size + 2][size + 2], int hits, int& x, int& y) {
     }
     else if (hits == 0) {
         while (Grid[x][y] == 2 || Grid[x][y] == 3 || Grid[x][y] == 4) { // не стрел€ем по уже открытым €чейкам
-            x = rand() % size + 1;
-            y = rand() % size + 1;
+            x = rand() % gridsize + 1;
+            y = rand() % gridsize + 1;
         }
         if (x > 10 || x < 1 || y > 10 || y < 1) {
             return 1;

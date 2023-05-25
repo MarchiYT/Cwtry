@@ -5,19 +5,19 @@
 #include <cmath>
 #include <ctime>
 
-int AroundCell(int i, int j, int b[size + 2][size + 2]);
+int AroundCell(int i, int j, int b[gridsize + 2][gridsize + 2]);
 
-int Ship_placement(int b[size + 2][size + 2], int size);
+int Ship_placement(int b[gridsize + 2][gridsize + 2], int gridsize);
 
-bool isSunk(int x, int y, int Grid[size + 2][size + 2], int size);
+bool isSunk(int x, int y, int Grid[gridsize + 2][gridsize + 2], int gridsize);
 
 int timer();
 
-int zeroGrid(int Gridp[size + 2][size + 2], int Gridc[size + 2][size + 2]);
+int zeroGrid(int Gridp[gridsize + 2][gridsize + 2], int Gridc[gridsize + 2][gridsize + 2]);
 
-int aroundHit(int Grid[size + 2][size + 2], int x, int y);
+int aroundHit(int Grid[gridsize + 2][gridsize + 2], int x, int y);
 
-int checkforHit(int Grid[size + 2][size + 2]);
+int checkforHit(int Grid[gridsize + 2][gridsize + 2]);
 
-int computerHit(int Grid[size + 2][size + 2], int hits, int& x, int& y);
+int computerHit(int Grid[gridsize + 2][gridsize + 2], int hits, int& x, int& y);
 
