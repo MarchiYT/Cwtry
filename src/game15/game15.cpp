@@ -23,11 +23,11 @@ int main() {
         return 1;
     }
 
-    if (initGraphic() != 0 || initAudio()) {
+    if (initGraphic() != 0) {
         return 1;
     }
 
-    if (Ship_placement(computerGrid, gridsize) != 0 || Ship_placement(playerGrid, size) != 0) {
+    if (Ship_placement(computerGrid, size) != 0 || Ship_placement(playerGrid, size) != 0) {
         return 1;
     }
 
