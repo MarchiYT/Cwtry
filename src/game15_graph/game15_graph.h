@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "public_variables.h"
 
 using namespace sf;
 

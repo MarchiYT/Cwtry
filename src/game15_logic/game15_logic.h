@@ -4,7 +4,6 @@
 #pragma warning(disable:4244)
 #include <cmath>
 #include <ctime>
-#include "public_variables.h"
 
 int AroundCell(int i, int j, int b[size + 2][size + 2]);
 

@@ -1,4 +1,4 @@
-#include "logic.h"
+#include "../game15_logic/game15_logic.h"
 
 int AroundCell(int i, int j, int b[size + 2][size + 2]) {
     if (b[i - 1][j - 1] == 1 or b[i - 1][j] == 1 or b[i - 1][j + 1] == 1 or b[i][j - 1] == 1 or b[i][j] == 1 or b[i][j + 1] == 1 or b[i + 1][j - 1] == 1 or b[i + 1][j] == 1 or b[i + 1][j + 1] == 1) return 1;
