@@ -1,0 +1,5 @@
+*.o
+*.d
+.vscode
+*exe
+*.7z
