@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../game15_logic/game15_logic.h"
 
 using namespace sf;
 
