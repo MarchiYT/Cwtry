@@ -11,10 +11,10 @@ bool isPaused = 0;
 bool isPlayerTurn = true; // ��� ������
 
 int main() {
-	int playerGrid[gridsize + 2][gridsize + 2]; // ������� ���� ������
-    int computerGrid[gridsize + 2][gridsize + 2]; // ������� ���� ����������
+	int playerGrid[size + 2][size + 2]; // ������� ���� ������
+    int computerGrid[size + 2][size + 2]; // ������� ���� ����������
 
-    RenderWindow window(VideoMode((gridsize+2) * cellgridsize * 2, (gridsize + 2) * cellgridsize), "Battleships", Style::Titlebar | Style::Close);
+    RenderWindow window(VideoMode((size+2) * cellsize * 2, (size + 2) * cellsize), "Battleships", Style::Titlebar | Style::Close);
     window.setFramerateLimit(60);
 
     srand(time(NULL));
@@ -27,7 +27,7 @@ int main() {
         return 1;
     }
 
-    if (Ship_placement(computerGrid, gridgridsize) != 0 || Ship_placement(playerGrid, gridsize) != 0) {
+    if (Ship_placement(computerGrid, gridsize) != 0 || Ship_placement(playerGrid, size) != 0) {
         return 1;
     }
 
@@ -37,9 +37,9 @@ int main() {
             if (event.type == Event::Closed) {
                 window.close();
             }
-            if (isPlayerTurn && event.type == Event::MouseButtonPressed && (event.mouseButton.x < ((gridsize + 2) * 2) * cellgridsize) && (event.mouseButton.x > (gridsize + 2) * cellgridsize)) { // ���� ������ ��� ������ � �� ����� �� ������
-                int x = (event.mouseButton.x - (gridsize + 2) * cellgridsize) / cellgridsize;
-                int y = event.mouseButton.y / cellgridsize;
+            if (isPlayerTurn && event.type == Event::MouseButtonPressed && (event.mouseButton.x < ((size + 2) * 2) * cellsize) && (event.mouseButton.x > (size + 2) * cellsize)) { // ���� ������ ��� ������ � �� ����� �� ������
+                int x = (event.mouseButton.x - (size + 2) * cellsize) / cellsize;
+                int y = event.mouseButton.y / cellsize;
 
                 if (computerGrid[x][y] == 1) { // ����
                     computerGrid[x][y] = 3;
@@ -55,10 +55,10 @@ int main() {
         }
         window.clear(Color::White);
 
-        for (int x = 1; x < gridsize + 1; x++) {
-            for (int y = 1; y < gridsize + 1; y++) {
-                if ((computerGrid[x][y] == 3 && isSunk(x, y, computerGrid, gridsize) == true && aroundHit(computerGrid, x, y) != 0)
-                    || (playerGrid[x][y] == 3 && isSunk(x, y, playerGrid, gridsize) == true && aroundHit(playerGrid, x, y) != 0)) {
+        for (int x = 1; x < size + 1; x++) {
+            for (int y = 1; y < size + 1; y++) {
+                if ((computerGrid[x][y] == 3 && isSunk(x, y, computerGrid, size) == true && aroundHit(computerGrid, x, y) != 0)
+                    || (playerGrid[x][y] == 3 && isSunk(x, y, playerGrid, size) == true && aroundHit(playerGrid, x, y) != 0)) {
                     return 1;
                 }
             }
@@ -78,8 +78,8 @@ int main() {
 
         if (!isPlayerTurn) { // ���� ������ ��� ����������
 
-            int x = rand() % gridsize + 1;
-            int y = rand() % gridsize + 1;
+            int x = rand() % size + 1;
+            int y = rand() % size + 1;
 
             computerHit(playerGrid, checkforHit(playerGrid), x, y);
 
