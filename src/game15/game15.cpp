@@ -1,5 +1,4 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "../game15_logic/game15_logic.h"
 #include "../game15_graph/game15_graph.h"
 
