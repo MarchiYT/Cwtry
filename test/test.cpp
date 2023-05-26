@@ -2,6 +2,11 @@
 
 #include "../src/game15_logic/game15_logic.h"
 
+CTEST (ctest, timerCheck) {
+    bool timerTrue = timer() ;
+    ASSERT_TRUE(!timerTrue);
+}
+
 CTEST (ctest, zeroGridCheck) {
 	int Gridp[12][12];
 	int Gridc[12][12];
@@ -40,11 +45,6 @@ CTEST (ctest, aroundHitCheck) {
 	int y = 6;
     bool aroundHitTrue = aroundHit(Grid, x, y) ;
     ASSERT_TRUE(!aroundHitTrue);
-}
-
-CTEST (ctest, timerCheck) {
-    bool timerTrue = timer() ;
-    ASSERT_TRUE(!timerTrue);
 }
 
 CTEST (ctest, isSunkCheck) {
