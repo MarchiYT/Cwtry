@@ -420,24 +420,24 @@ int drawGrid(RenderWindow& window, int Gridp[sizeg + 2][sizeg + 2], int Gridc[si
 }
 
 int initGraphic() {
-    if (!sea.loadFromFile("../resources/textures/sea.jpg")
-        || !sand.loadFromFile("../resources/textures/sand.jpg")
-        || !miss.loadFromFile("../resources/textures/miss.jpg")
-        || !ship1.loadFromFile("../resources/textures/ship1.jpg")
-        || !ship1exp.loadFromFile("../resources/textures/ship1exp.jpg")
-        || !shipedger.loadFromFile("../resources/textures/shipedge(r).jpg")
-        || !shipedgerexp.loadFromFile("../resources/textures/shipedge(r)exp.jpg")
-        || !shipedgel.loadFromFile("../resources/textures/shipedge(l).jpg")
-        || !shipedgelexp.loadFromFile("../resources/textures/shipedge(l)exp.jpg")
-        || !shipedget.loadFromFile("../resources/textures/shipedge(t).jpg")
-        || !shipedgetexp.loadFromFile("../resources/textures/shipedge(t)exp.jpg")
-        || !shipedged.loadFromFile("../resources/textures/shipedge(d).jpg")
-        || !shipedgedexp.loadFromFile("../resources/textures/shipedge(d)exp.jpg")
-        || !shipmidlr.loadFromFile("../resources/textures/shipmid(lr).jpg")
-        || !shipmidlrexp.loadFromFile("../resources/textures/shipmid(lr)exp.jpg")
-        || !shipmidtd.loadFromFile("../resources/textures/shipmid(td).jpg")
-        || !shipmidtdexp.loadFromFile("../resources/textures/shipmid(td)exp.jpg")
-        || !explosion.loadFromFile("../resources/textures/explosion.jpg")) {
+    if (!sea.loadFromFile("../external/images/sea.jpg")
+        || !sand.loadFromFile("../external/images/sand.jpg")
+        || !miss.loadFromFile("../external/images/miss.jpg")
+        || !ship1.loadFromFile("../external/images/ship1.jpg")
+        || !ship1exp.loadFromFile("../external/images/ship1exp.jpg")
+        || !shipedger.loadFromFile("../external/images/shipedge(r).jpg")
+        || !shipedgerexp.loadFromFile("../external/images/shipedge(r)exp.jpg")
+        || !shipedgel.loadFromFile("../external/images/shipedge(l).jpg")
+        || !shipedgelexp.loadFromFile("../external/images/shipedge(l)exp.jpg")
+        || !shipedget.loadFromFile("../external/images/shipedge(t).jpg")
+        || !shipedgetexp.loadFromFile("../external/images/shipedge(t)exp.jpg")
+        || !shipedged.loadFromFile("../external/images/shipedge(d).jpg")
+        || !shipedgedexp.loadFromFile("../external/images/shipedge(d)exp.jpg")
+        || !shipmidlr.loadFromFile("../external/images/shipmid(lr).jpg")
+        || !shipmidlrexp.loadFromFile("../external/images/shipmid(lr)exp.jpg")
+        || !shipmidtd.loadFromFile("../external/images/shipmid(td).jpg")
+        || !shipmidtdexp.loadFromFile("../external/images/shipmid(td)exp.jpg")
+        || !explosion.loadFromFile("../external/images/explosion.jpg")) {
         return 1;
     }
     return 0;
