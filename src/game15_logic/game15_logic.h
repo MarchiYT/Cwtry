@@ -1,26 +1,20 @@
 #pragma once
-#pragma warning(disable:6385)
-#pragma warning(disable:6386)
-#pragma warning(disable:4244)
 #include <cmath>
 #include <ctime>
 
-const int size = 10;
-const int cellsize = 50;
+int AroundCell(int i, int j, int b[10 + 2][10 + 2]);
 
-int AroundCell(int i, int j, int b[size + 2][size + 2]);
+int Ship_placement(int b[10 + 2][10 + 2], int 10);
 
-int Ship_placement(int b[size + 2][size + 2], int size);
-
-bool isSunk(int x, int y, int Grid[size + 2][size + 2], int size);
+bool isSunk(int x, int y, int Grid[10 + 2][10 + 2], int 10);
 
 int timer();
 
-int zeroGrid(int Gridp[size + 2][size + 2], int Gridc[size + 2][size + 2]);
+int zeroGrid(int Gridp[10 + 2][10 + 2], int Gridc[10 + 2][10 + 2]);
 
-int aroundHit(int Grid[size + 2][size + 2], int x, int y);
+int aroundHit(int Grid[10 + 2][10 + 2], int x, int y);
 
-int checkforHit(int Grid[size + 2][size + 2]);
+int checkforHit(int Grid[10 + 2][10 + 2]);
 
-int computerHit(int Grid[size + 2][size + 2], int hits, int& x, int& y);
+int computerHit(int Grid[10 + 2][10 + 2], int hits, int& x, int& y);
 
