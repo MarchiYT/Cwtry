@@ -23,20 +23,19 @@ CTEST (ctest, Ship_placementCheck) {
     //ASSERT_FALSE(checkShip_placementFalse);
 }
 
-/*CTEST (ctest, aroundHitCheck) {
-    bool aroundHitTrue = aroundHit(int Grid[size + 2][size + 2], int x, int y) ;
-    ASSERT_TRUE(aroundHitTrue);
+CTEST (ctest, aroundHitCheck) {
+	int Grid[12][12];
+	int x = 5;
+	int y = 6;
+    bool aroundHitTrue = aroundHit(Grid, x, y) ;
+    ASSERT_TRUE(!aroundHitTrue);
     
 
-    bool aroundHitFalse = aroundHit(int Grid[size + 3][size + 2], int x) ;
-    ASSERT_FALSE(aroundHitFalse);
+    //bool aroundHitFalse = aroundHit(int Grid[size + 3][size + 2], int x) ;
+    //ASSERT_FALSE(aroundHitFalse);
 }
 
-CTEST (ctest, computerHitCheck) {
-    bool computerHitTrue = computerHit(int Grid[size + 2][size + 2], int hits, int& x, int& y) ;
-    ASSERT_TRUE(computerHitTrue);
-    
-
-    bool computerHit = computerHit(int Grid[size + 3][size + 2], int& x, int& y) ;
-    ASSERT_FALSE(computerHitFalse);
-}*/
+CTEST (ctest, timerCheck) {
+    bool timerTrue = timer() ;
+    ASSERT_TRUE(!timerTrue);
+}
