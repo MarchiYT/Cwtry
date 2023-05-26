@@ -1,6 +1,6 @@
 #include <iostream>
-#include "game15_logic.h"
-#include "game15_graph.h"
+#include "../game15_logic/game15_logic.h"
+#include "../game15_graph/game15_graph.h"
 
 using namespace sf;
 
