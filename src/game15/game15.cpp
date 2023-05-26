@@ -29,7 +29,7 @@ int main() {
         return 1;
     }
 
-    if (Ship_placement(computerGrid, size) != 0 || Ship_placement(playerGrid, size) != 0) {
+    if (Ship_placement(computerGrid) != 0 || Ship_placement(playerGrid) != 0) {
         return 1;
     }
 
@@ -59,8 +59,8 @@ int main() {
 
         for (int x = 1; x < size + 1; x++) {
             for (int y = 1; y < size + 1; y++) {
-                if ((computerGrid[x][y] == 3 && isSunk(x, y, computerGrid, size) == true && aroundHit(computerGrid, x, y) != 0)
-                    || (playerGrid[x][y] == 3 && isSunk(x, y, playerGrid, size) == true && aroundHit(playerGrid, x, y) != 0)) {
+                if ((computerGrid[x][y] == 3 && isSunk(x, y, computerGrid) == true && aroundHit(computerGrid, x, y) != 0)
+                    || (playerGrid[x][y] == 3 && isSunk(x, y, playerGrid) == true && aroundHit(playerGrid, x, y) != 0)) {
                     return 1;
                 }
             }
