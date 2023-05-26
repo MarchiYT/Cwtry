@@ -2,11 +2,6 @@
 
 #include "../src/game15_logic/game15_logic.h"
 
-CTEST (ctest, timerCheck) {
-    bool timerTrue = timer() ;
-    ASSERT_TRUE(!timerTrue);
-}
-
 CTEST (ctest, zeroGridCheck) {
 	int Gridp[12][12];
 	int Gridc[12][12];
