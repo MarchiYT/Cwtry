@@ -11,12 +11,10 @@ bool isPaused = 0;
 bool isPlayerTurn = true; // ��� ������
 
 int main() {
-	const int size = 10;
-	const int cellsize = 50;
-	int playerGrid[size + 2][size + 2]; // ������� ���� ������
-    int computerGrid[size + 2][size + 2]; // ������� ���� ����������
+	int playerGrid[10 + 2][10 + 2]; // ������� ���� ������
+    int computerGrid[10 + 2][10 + 2]; // ������� ���� ����������
 
-    RenderWindow window(VideoMode((size+2) * cellsize * 2, (size + 2) * cellsize), "Battleships", Style::Titlebar | Style::Close);
+    RenderWindow window(VideoMode((10+2) * 50 * 2, (10 + 2) * 50), "Battleships", Style::Titlebar | Style::Close);
     window.setFramerateLimit(60);
 
     srand(time(NULL));
@@ -39,9 +37,9 @@ int main() {
             if (event.type == Event::Closed) {
                 window.close();
             }
-            if (isPlayerTurn && event.type == Event::MouseButtonPressed && (event.mouseButton.x < ((size + 2) * 2) * cellsize) && (event.mouseButton.x > (size + 2) * cellsize)) { // ���� ������ ��� ������ � �� ����� �� ������
-                int x = (event.mouseButton.x - (size + 2) * cellsize) / cellsize;
-                int y = event.mouseButton.y / cellsize;
+            if (isPlayerTurn && event.type == Event::MouseButtonPressed && (event.mouseButton.x < ((10 + 2) * 2) * 50) && (event.mouseButton.x > (10 + 2) * 50)) { // ���� ������ ��� ������ � �� ����� �� ������
+                int x = (event.mouseButton.x - (10 + 2) * 50) / 50;
+                int y = event.mouseButton.y / 50;
 
                 if (computerGrid[x][y] == 1) { // ����
                     computerGrid[x][y] = 3;
@@ -57,8 +55,8 @@ int main() {
         }
         window.clear(Color::White);
 
-        for (int x = 1; x < size + 1; x++) {
-            for (int y = 1; y < size + 1; y++) {
+        for (int x = 1; x < 10 + 1; x++) {
+            for (int y = 1; y < 10 + 1; y++) {
                 if ((computerGrid[x][y] == 3 && isSunk(x, y, computerGrid) == true && aroundHit(computerGrid, x, y) != 0)
                     || (playerGrid[x][y] == 3 && isSunk(x, y, playerGrid) == true && aroundHit(playerGrid, x, y) != 0)) {
                     return 1;
@@ -80,8 +78,8 @@ int main() {
 
         if (!isPlayerTurn) { // ���� ������ ��� ����������
 
-            int x = rand() % size + 1;
-            int y = rand() % size + 1;
+            int x = rand() % 10 + 1;
+            int y = rand() % 10 + 1;
 
             computerHit(playerGrid, checkforHit(playerGrid), x, y);
 
