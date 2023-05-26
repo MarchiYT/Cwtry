@@ -341,7 +341,7 @@ int Ship_placement(int b[10 + 2][10 + 2])
 int timer() {
     clock_t start_time = clock(); // Получение текущего времени
     while (clock() < start_time + 1.2 * CLOCKS_PER_SEC) {} // Ожидание 1.2 секунд
-    if (clock() > start_time + 1.2 * CLOCKS_PER_SEC) {
+    if (clock() > start_time + 1.2 * CLOCKS_PER_SEC + 0.1) {
         return 1;
     }
     return 0;
