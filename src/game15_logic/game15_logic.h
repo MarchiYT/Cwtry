@@ -4,9 +4,9 @@
 
 int AroundCell(int i, int j, int b[10 + 2][10 + 2]);
 
-int Ship_placement(int b[10 + 2][10 + 2], int 10);
+int Ship_placement(int b[10 + 2][10 + 2]);
 
-bool isSunk(int x, int y, int Grid[10 + 2][10 + 2], int 10);
+bool isSunk(int x, int y, int Grid[10 + 2][10 + 2]);
 
 int timer();
 

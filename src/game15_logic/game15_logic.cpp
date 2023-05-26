@@ -5,7 +5,7 @@ int AroundCell(int i, int j, int b[10 + 2][10 + 2]) {
     else return 0;
 }
 
-int Ship_placement(int b[10 + 2][10 + 2], int 10)
+int Ship_placement(int b[10 + 2][10 + 2])
 {
     int l = 0;      //count 4 ships
     while (l < 1) {
@@ -442,7 +442,7 @@ int aroundHit(int Grid[10 + 2][10 + 2], int x, int y) {
     return 0;
 }
 
-bool isSunk(int x, int y, int Grid[10 + 2][10 + 2], int 10) {
+bool isSunk(int x, int y, int Grid[10 + 2][10 + 2]) {
     if (Grid[x + 1][y] == 3 || Grid[x + 1][y] == 4) {
         if (Grid[x + 2][y] == 3 || Grid[x + 2][y] == 4) {
             if (Grid[x + 3][y] == 3 || Grid[x + 3][y] == 4) {
