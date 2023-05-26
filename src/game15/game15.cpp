@@ -11,8 +11,8 @@ bool isPaused = 0;
 bool isPlayerTurn = true; // ��� ������
 
 int main() {
-	int size = 10;
-	int cellsize = 50;
+	const int size = 10;
+	const int cellsize = 50;
 	int playerGrid[size + 2][size + 2]; // ������� ���� ������
     int computerGrid[size + 2][size + 2]; // ������� ���� ����������
 
